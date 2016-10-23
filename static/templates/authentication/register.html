@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col m4 offset-m4">
+    <h1>Register</h1>
+
+    <form role="form" ng-submit="vm.register()">
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="email" class="validate" id="register__email" ng-model="vm.email" />
+                <label for="register__email">Email</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="password" class="validate" id="register__password" ng-model="vm.password" />
+                <label for="register__password">Password</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <button type="submit" class="btn waves-effect waves-light">
+                    Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </form>
+  </div>
+</div>

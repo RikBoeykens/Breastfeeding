@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col m4 offset-m4">
+    <h1>Update Details</h1>
+
+    <form role="form" ng-submit="vm.updateChild()">
+        <div class="row">
+            <div class="col s12" input-field>
+                <input type="text" class="validate" id="child__name" ng-model="vm.child.name" />
+                <label for="child__name">Name</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12" input-field>
+                <input input-date type="text" class="validate" id="child__birth_date" ng-model="vm.child.birth_date" />
+                <label for="child__birth_date">Birthdate</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+              <input type="checkbox" id="child__is_active" ng-model="vm.child.is_active" />
+              <label for="child__is_active">Active</label>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <a href="/settings" class="btn waves-effect waves-light red">Back</a>
+            <button type="submit" class="btn waves-effect waves-light right">
+                Update
+                <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+    </form>
+  </div>
+</div>

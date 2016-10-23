@@ -1,0 +1,55 @@
+{% load compress %}
+{% load staticfiles %}
+
+{% compress js %}
+<script type="text/javascript" src="{% static 'bower_components/jquery/dist/jquery.js' %}"></script>
+<!--script type="text/javascript" src="{% static 'bower_components/bootstrap/dist/js/bootstrap.js' %}"></script>
+<script type="text/javascript" src="{% static 'bower_components/bootstrap-material-design/dist/js/material.js' %}"></script>
+<script type="text/javascript" src="{% static 'bower_components/bootstrap-material-design/dist/js/ripples.js' %}"></script-->
+<script type="text/javascript" src="{% static 'bower_components/underscore/underscore.js' %}"></script>
+<script type="text/javascript" src="{% static 'bower_components/materialize/dist/js/materialize.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'bower_components/angular/angular.js' %}"></script>
+<script type="text/javascript" src="{% static 'bower_components/angular-route/angular-route.js' %}"></script>
+<script type="text/javascript" src="{% static 'bower_components/angular-cookies/angular-cookies.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'bower_components/angular-materialize/src/angular-materialize.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'bower_components/ngDialog/js/ngDialog.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/snackbarjs/snackbar.min.js' %}"></script>
+
+<!-- Main -->
+<script type="text/javascript" src="{% static 'javascripts/breastfeeding.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/breastfeeding.config.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/breastfeeding.routes.js' %}"></script>
+<!-- Authentication -->
+<script type="text/javascript" src="{% static 'javascripts/authentication/authentication.module.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/authentication/services/authentication.service.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/authentication/controllers/register.controller.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/authentication/controllers/login.controller.js' %}"></script>
+<!-- Layout -->
+<script type="text/javascript" src="{% static 'javascripts/layout/layout.module.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/layout/controllers/navbar.controller.js' %}"></script>
+<!-- Settings -->
+<script type="text/javascript" src="{% static 'javascripts/settings/settings.module.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/settings/controllers/settings.controller.js' %}"></script>
+<!-- Children -->
+<script type="text/javascript" src="{% static 'javascripts/children/children.module.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/children/services/children.service.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/children/directives/children.directive.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/children/controllers/addchild.controller.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/children/controllers/editchild.controller.js' %}"></script>
+<!-- Feeds -->
+<script type="text/javascript" src="{% static 'javascripts/feeds/feeds.module.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/feeds/controllers/childfeed.controller.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/feeds/directives/childfeed.directive.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/feeds/services/feeds.service.js' %}"></script>
+<!-- Dashboard -->
+<script type="text/javascript" src="{% static 'javascripts/dashboard/dashboard.module.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/dashboard/controllers/dashboard.controller.js' %}"></script>
+<!-- Utils -->
+<script type="text/javascript" src="{% static 'javascripts/utils/utils.module.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/utils/filters/elapsed.filter.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/utils/services/messages.service.js' %}"></script>
+
+{% endcompress %}
