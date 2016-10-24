@@ -24,6 +24,10 @@
       controller: 'SettingsController',
       controllerAs: 'vm',
       templateUrl: '/static/templates/settings/settings.html'
+    }).when('/settings/:id/child', {
+      controller: 'ChildSettingsController',
+      controllerAs: 'vm',
+      templateUrl: '/static/templates/children/childsettings.html'
     }).when('/addchild', {
       controller: 'AddChildController',
       controllerAs: 'vm',

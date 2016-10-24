@@ -1,9 +1,10 @@
 <ul class="collection">
   <li class="collection-item avatar" ng-repeat="child in children">
+    <a href="/settings/{{child.id}}/child">
       <i class="material-icons circle">child_care</i>
       <span class="title">{{child.name}}</span>
       <p>DOB: {{child.birth_date}}</p>
-      <p>Active: {{child.is_active ? 'Yes' : 'No'}}</p>
-      <a href="/editchild/{{child.id}}" class="secondary-content">Edit</a>
+      <p>Breastfeeding: {{child.is_active ? 'Yes' : 'No'}}</p>
+    </a>
   </li>
 </ul>
