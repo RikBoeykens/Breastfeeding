@@ -55,7 +55,7 @@
       * @desc Log the new user in
       */
       function registerSuccessFn(data, status, headers, config) {
-        Authentication.login(email, password);
+        Authentication.login(email, password, true);
       }
 
       /**
@@ -75,7 +75,7 @@
      * @returns {Promise}
      * @memberOf thinkster.authentication.services.Authentication
      */
-    function login(email, password) {
+    function login(email, password, firstlogin) {
       return $http.post('/api/v1/auth/login/', {
         email: email, password: password
       }).then(loginSuccessFn, loginErrorFn);
@@ -87,7 +87,11 @@
       function loginSuccessFn(data, status, headers, config) {
         Authentication.setAuthenticatedAccount(data.data);
 
-        window.location = '/';
+        if(firstlogin){
+          window.location = '/firstsetup';
+        }else{
+          window.location = '/';
+        }
       }
 
       /**

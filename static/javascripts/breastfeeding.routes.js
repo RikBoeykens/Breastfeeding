@@ -20,6 +20,10 @@
       controller: 'LoginController',
       controllerAs: 'vm',
       templateUrl: '/static/templates/authentication/login.html'
+    }).when('/firstsetup', {
+      controller: 'FirstSetupController',
+      controllerAs: 'vm',
+      templateUrl: '/static/templates/settings/firstsetup.html'
     }).when('/settings', {
       controller: 'SettingsController',
       controllerAs: 'vm',
