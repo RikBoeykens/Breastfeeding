@@ -26,12 +26,12 @@ class ChildViewSet(viewsets.ModelViewSet):
 
         return Response(serializer.data)
 
-class ChildFeedsViewSet(viewsets.ViewSet):
+class ActiveChildrenViewSet(viewsets.ViewSet):
     queryset = Child.objects.select_related('parent').order_by('-birth_date')
     serializer_class = ChildFeedSerializer
 
     def list(self, request):
-        queryset = self.queryset.filter(parent=self.request.user)
+        queryset = self.queryset.filter(parent=self.request.user).filter(is_active=True)
         serializer = self.serializer_class(queryset, many=True)
 
         return Response(serializer.data)

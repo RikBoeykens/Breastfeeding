@@ -31,14 +31,14 @@
       if (!Authentication.isAuthenticated()) {
         $location.url('/login');
       }
-      Children.allFeeds().then(childrenSuccessFn, childrenErrorFn);
+      Children.activeChildren().then(childrenSuccessFn, childrenErrorFn);
 
             /**
       * @name childrenSuccessFn
       * @desc Update children array on view
       */
       function childrenSuccessFn(data, status, headers, config) {
-        vm.children = $filter('filter')(data.data, {is_active: true});
+        vm.children = data.data;
       }
 
 

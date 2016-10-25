@@ -3,13 +3,13 @@ from rest_framework_nested import routers
 
 from views import IndexView
 from authentication.views import AccountViewSet, LoginView, LogoutView
-from children.views import ChildViewSet, ChildFeedsViewSet
+from children.views import ChildViewSet, ActiveChildrenViewSet
 from feeds.views import FeedViewSet, StartFeedView, EndFeedView
 
 router = routers.SimpleRouter()
 router.register(r'accounts', AccountViewSet)
 router.register(r'children', ChildViewSet)
-router.register(r'childfeeds', ChildFeedsViewSet)
+router.register(r'activechildren', ActiveChildrenViewSet)
 router.register(r'feeds', FeedViewSet)
 
 urlpatterns = patterns(
