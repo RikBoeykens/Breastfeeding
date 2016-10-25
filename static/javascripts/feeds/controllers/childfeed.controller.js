@@ -17,6 +17,8 @@
   function ChildFeedController($scope, $filter, Feeds, Messages) {
     var vm = this;
 
+    vm.lastFeed = $filter('orderBy')($scope.child.feeds, 'start_time', true)[0];
+
     activate();
 
     vm.startFeed = startFeed;
@@ -28,24 +30,7 @@
      * @memberOf breastfeeding.feeds.controllers.ChildFeedController
      */
     function activate() {
-      Feeds.childAll($scope.child.id).then(feedSuccessFn, feedErrorFn);
 
-            /**
-      * @name feedSuccessFn
-      * @desc Update feed on view
-      */
-      function feedSuccessFn(data, status, headers, config) {
-        vm.lastFeed = $filter('orderBy')(data.data, 'start_time', true)[0];
-      }
-
-
-      /**
-      * @name feedErrorFn
-      * @desc Show message with error
-      */
-      function feedErrorFn(data, status, headers, config) {
-        Messages.error(data.error);
-      }
     }
 
         /**

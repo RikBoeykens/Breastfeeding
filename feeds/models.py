@@ -2,7 +2,7 @@ from django.db import models
 from children.models import Child
 
 class Feed(models.Model):
-    child = models.ForeignKey(Child)
+    child = models.ForeignKey(Child, related_name='feeds')
     start_time = models.DateTimeField()
     end_time = models.DateTimeField(null=True, blank=True)
     right_side = models.BooleanField(default=False)

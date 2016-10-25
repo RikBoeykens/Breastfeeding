@@ -55,13 +55,3 @@ class EndFeedView(views.APIView):
         serialized = FeedSerializer(feed)
 
         return Response(serialized.data)
-
-class ChildFeedsViewSet(viewsets.ViewSet):
-    queryset = Feed.objects.select_related('child').all()
-    serializer_class = FeedSerializer
-
-    def list(self, request, child_pk=None):
-        queryset = self.queryset.filter(child__id=child_pk)
-        serializer = self.serializer_class(queryset, many=True)
-
-        return Response(serializer.data)

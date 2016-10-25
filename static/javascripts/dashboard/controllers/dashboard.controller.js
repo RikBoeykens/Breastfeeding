@@ -31,7 +31,7 @@
       if (!Authentication.isAuthenticated()) {
         $location.url('/login');
       }
-      Children.all().then(childrenSuccessFn, childrenErrorFn);
+      Children.allFeeds().then(childrenSuccessFn, childrenErrorFn);
 
             /**
       * @name childrenSuccessFn

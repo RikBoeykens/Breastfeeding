@@ -17,6 +17,7 @@
   */
   function Children($http) {
     var Children = {
+      allFeeds: allFeeds,
       all: all,
       create: create,
       update: update,
@@ -27,6 +28,17 @@
     return Children;
 
     ////////////////////
+
+    /**
+    * @name all
+    * @desc Get all Children
+    * @returns {Promise}
+    * @memberOf breastfeeding.children.services.Children
+    */
+    function allFeeds() {
+      return $http.get('/api/v1/childfeeds/');
+    }
+
 
     /**
     * @name all

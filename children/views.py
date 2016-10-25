@@ -3,7 +3,7 @@ from rest_framework.response import Response
 
 from children.models import Child
 from children.permissions import IsParentOfChild
-from children.serializers import ChildSerializer
+from children.serializers import ChildSerializer, ChildFeedSerializer
 
 
 class ChildViewSet(viewsets.ModelViewSet):
@@ -19,6 +19,16 @@ class ChildViewSet(viewsets.ModelViewSet):
         instance = serializer.save(parent=self.request.user)
 
         return super(ChildViewSet, self).perform_create(serializer)
+
+    def list(self, request):
+        queryset = self.queryset.filter(parent=self.request.user)
+        serializer = self.serializer_class(queryset, many=True)
+
+        return Response(serializer.data)
+
+class ChildFeedsViewSet(viewsets.ViewSet):
+    queryset = Child.objects.select_related('parent').order_by('-birth_date')
+    serializer_class = ChildFeedSerializer
 
     def list(self, request):
         queryset = self.queryset.filter(parent=self.request.user)
