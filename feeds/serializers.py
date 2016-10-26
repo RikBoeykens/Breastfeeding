@@ -2,10 +2,11 @@ from rest_framework import serializers
 
 from feeds.models import Feed
 
+from children.serializers import ChildSerializer
 
 class FeedSerializer(serializers.ModelSerializer):
 
-    child = serializers.PrimaryKeyRelatedField(read_only=True)
+    child = ChildSerializer(read_only=True, required=False)
 
     class Meta:
         model = Feed

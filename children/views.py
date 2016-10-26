@@ -3,7 +3,8 @@ from rest_framework.response import Response
 
 from children.models import Child
 from children.permissions import IsParentOfChild
-from children.serializers import ChildSerializer, ChildFeedSerializer
+from children.serializers import ChildSerializer
+from children.childfeedserializers import ChildFeedSerializer
 
 
 class ChildViewSet(viewsets.ModelViewSet):

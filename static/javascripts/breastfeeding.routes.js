@@ -40,6 +40,10 @@
       controller: 'EditChildController',
       controllerAs: 'vm',
       templateUrl: '/static/templates/children/editchild.html'
+    }).when('/feeds', {
+      controller: 'FeedsController',
+      controllerAs: 'vm',
+      templateUrl: '/static/templates/feeds/feeds.html'
     }).when('/', {
       controller: 'DashboardController',
       controllerAs: 'vm',
