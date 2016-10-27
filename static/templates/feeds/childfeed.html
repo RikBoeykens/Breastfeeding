@@ -11,16 +11,20 @@
         <p ng-show="vm.lastFeed && vm.lastFeed.end_time">Last feed ended {{vm.lastFeed.end_time | elapsed : 'short'}}, fed for {{vm.lastFeed.start_time | timediff : vm.lastFeed.end_time }} on {{vm.lastFeed.right_side ? 'right' : 'left'}}.</p>
       </div>
       <div class="card-action">
-        <div class="switch" ng-show="!vm.lastFeed || (vm.lastFeed && vm.lastFeed.end_time)">
-          <label>
-            Left
-            <input type="checkbox" ng-model="vm.right_side">
-            <span class="lever"></span>
-            Right
-          </label>
+        <div class="row valign-wrapper" ng-show="!vm.lastFeed || (vm.lastFeed && vm.lastFeed.end_time)">
+          <div class="col s3 valign">
+            <a class="btn-floating waves-effect waves-light green btn btn-flat" ng-click="vm.startFeed()"><i class="material-icons">play_arrow</i></a>
+          </div>
+          <div class="switch col s9 valign">
+            <label>
+              Left
+              <input type="checkbox" ng-model="vm.right_side">
+              <span class="lever"></span>
+              Right
+            </label>
+          </div>
         </div>
-        <a class="waves-effect waves-light btn" ng-show="!vm.lastFeed || (vm.lastFeed && vm.lastFeed.end_time)" ng-click="vm.startFeed()">Start Feed</a>
-        <a class="waves-effect waves-light btn" ng-show="vm.lastFeed && !vm.lastFeed.end_time" ng-click="vm.endFeed()">End Feed</a>
+        <a class="btn-floating waves-effect waves-light red btn btn-flat" ng-show="vm.lastFeed && !vm.lastFeed.end_time" ng-click="vm.endFeed()"><i class="material-icons">stop</i></a>
       </div>
     </div>
   </div>
