@@ -12,7 +12,8 @@
       'breastfeeding.feeds',
       'breastfeeding.utils',
       'breastfeeding.dashboard',
-      'ui.materialize'
+      'ui.materialize',
+      'angular.filter'
     ])
     .run(run);
 

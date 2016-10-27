@@ -7,8 +7,8 @@
       <div class="card-content">
         <span class="card-title">{{child.name}}</span>
         <p ng-hide="vm.lastFeed">No feeds yet</p>
-        <p ng-show="vm.lastFeed && !vm.lastFeed.end_time">Feeding on {{vm.lastFeed.right_side ? 'right' : 'left'}} since {{vm.lastFeed.start_time | date: 'H:mm'}}</p>
-        <p ng-show="vm.lastFeed && vm.lastFeed.end_time">Last feed ended {{vm.lastFeed.end_time | elapsed}}, fed for {{vm.lastFeed.start_time | elapsed : vm.lastFeed.end_time }} on {{vm.lastFeed.right_side ? 'right' : 'left'}}.</p>
+        <p ng-show="vm.lastFeed && !vm.lastFeed.end_time">Feeding on {{vm.lastFeed.right_side ? 'right' : 'left'}} since {{vm.lastFeed.start_time | elapsed : 'short'}}</p>
+        <p ng-show="vm.lastFeed && vm.lastFeed.end_time">Last feed ended {{vm.lastFeed.end_time | elapsed : 'short'}}, fed for {{vm.lastFeed.start_time | timediff : vm.lastFeed.end_time }} on {{vm.lastFeed.right_side ? 'right' : 'left'}}.</p>
       </div>
       <div class="card-action">
         <div class="switch" ng-show="!vm.lastFeed || (vm.lastFeed && vm.lastFeed.end_time)">

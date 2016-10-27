@@ -11,13 +11,16 @@
     </div>
     <div class="row">
       <div class="col s12">
-        <ul class="collection">
-          <li class="collection-item avatar" ng-repeat="feed in vm.feeds | feeds : vm.selectedchildren">
-            <i class="material-icons circle">child_care</i>
-            <span class="title">{{feed.child.name}}</span>
-            <p>{{feed.start_time | elapsed}}, fed for {{feed.start_time | elapsed : feed.end_time }} on {{feed.right_side ? 'right' : 'left'}}.</p>
-          </li>
-        </ul>
+        <div ng-repeat="feedGroup in vm.feeds | feeds : vm.selectedchildren | groupBy: 'start_time | elapsed' | toArray:true | orderBy:'-start_time'">
+          <label>{{feedGroup.$key}}</label>
+            <ul class="collection">
+              <li class="collection-item avatar" ng-repeat="feed in feedGroup">
+                <i class="material-icons circle">child_care</i>
+                <span class="title">{{feed.child.name}}</span>
+                <p>{{feed.start_time | elapsed : 'short'}}, fed for {{feed.start_time | timediff : feed.end_time }} on {{feed.right_side ? 'right' : 'left'}}.</p>
+              </li>
+            </ul>
+        </div>
       </div>
     </div>
   </div>
