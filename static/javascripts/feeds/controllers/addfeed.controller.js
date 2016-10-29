@@ -53,7 +53,7 @@
 
     /**
      * @name addFeed
-     * @desc Adds a child to the user
+     * @desc Adds a feed to the child
      * @memberOf breastfeeding.feeds.controllers.AddFeedController
      */
     function addFeed(){

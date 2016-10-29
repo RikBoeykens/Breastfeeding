@@ -22,6 +22,8 @@
 
     activate();
 
+    vm.remove = remove;
+
     /**
      * @name activate
      * @desc Actions to be performed when this controller is instantiated
@@ -32,26 +34,10 @@
       if (!Authentication.isAuthenticated()) {
         $location.url('/login');
       }
-      Feeds.all().then(feedsSuccessFn, feedsErrorFn);
+
+      getFeeds();
+
       Children.all().then(childrenSuccessFn, childrenErrorFn);
-
-      /**
-      * @name feedsSuccessFn
-      * @desc Update feeds array on view
-      */
-      function feedsSuccessFn(data, status, headers, config) {
-        vm.feeds = data.data;
-      }
-
-
-      /**
-      * @name feedsErrorFn
-      * @desc Show message with error
-      */
-      function feedsErrorFn(data, status, headers, config) {
-        Messages.error(data.error);
-      }
-
 
       /**
       * @name childrenSuccessFn
@@ -69,6 +55,60 @@
       */
       function childrenErrorFn(data, status, headers, config) {
         Messages.error(data.error);
+      }
+    }
+
+    /**
+     * @name getFeeds
+     * @desc Gets all feeds
+     * @memberOf breastfeeding.feeds.controllers.FeedsController
+     */
+    function getFeeds(){
+
+      Feeds.all().then(feedsSuccessFn, feedsErrorFn);
+
+      /**
+      * @name feedsSuccessFn
+      * @desc Update feeds array on view
+      */
+      function feedsSuccessFn(data, status, headers, config) {
+        vm.feeds = data.data;
+      }
+
+
+      /**
+      * @name feedsErrorFn
+      * @desc Show message with error
+      */
+      function feedsErrorFn(data, status, headers, config) {
+        Messages.error(data.error);
+      }
+    }
+
+    /**
+     * @name remove
+     * @desc Removes a feed
+     * @memberOf breastfeeding.feeds.controllers.FeedsController
+     */
+    function remove(feed){
+
+      Feeds.remove(feed.id).then(removeSuccessFn, removeErrorFn);
+
+      vm.feeds.splice(vm.feeds.indexOf(feed), 1);
+
+      /**
+       * Show message on success
+       */
+      function removeSuccessFn(){
+        Messages.show("Successfully removed feed.");
+      }
+
+      /**
+       * Show error
+       */
+      function removeErrorFn(data){
+        Messages.error("Something went wrong while trying to remove feed.");
+        getFeeds();
       }
     }
   }

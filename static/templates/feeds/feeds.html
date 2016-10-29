@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col m4 offset-m4">
+  <div class="col m8 offset-m2 l6 offset-l4">
     <h1>Feeds</h1>
     <div class="row" ng-show="vm.children && vm.children.length>1">
       <div class="col s12">
@@ -16,8 +16,14 @@
             <ul class="collection">
               <li class="collection-item avatar" ng-repeat="feed in feedGroup">
                 <i class="material-icons circle">child_care</i>
-                <span class="title">{{feed.child.name}}</span>
-                <p>{{feed.start_time | elapsed : 'short'}}, fed for {{feed.start_time | timediff : feed.end_time }} on {{feed.right_side ? 'right' : 'left'}}.</p>
+                <div class="col s8">
+                  <span class="title">{{feed.child.name}}</span>
+                  <p>{{feed.start_time | elapsed : 'short'}}, fed for {{feed.start_time | timediff : feed.end_time }} on {{feed.right_side ? 'right' : 'left'}}.</p>
+                </div>
+                <div class="col s4">
+                  <a class="right click-link grey-link" ng-click="vm.remove(feed)"><i class="material-icons">delete</i></a>
+                  <a class="right click-link grey-link" ng-click="vm.openModalTest()">Open modal</a>
+                </div>
               </li>
             </ul>
         </div>
