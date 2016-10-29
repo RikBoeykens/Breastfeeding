@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col m4 offset-m4">
     <h1>Feeds</h1>
-    <div class="row">
+    <div class="row" ng-show="vm.children && vm.children.length>1">
       <div class="col s12">
         <div input-field>
           <select class="" ng-options="child as child.name for child in vm.children" ng-model="vm.selectedchildren" material-select multiple watch>
@@ -22,6 +22,12 @@
             </ul>
         </div>
       </div>
+    </div>
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large red"
+          href="/addfeed">
+        <i class="large material-icons">add</i>
+      </a>
     </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 from rest_framework import permissions, viewsets, status, views
 from rest_framework.response import Response
 
@@ -24,6 +25,24 @@ class FeedViewSet(viewsets.ModelViewSet):
         serializer = self.serializer_class(queryset, many=True)
 
         return Response(serializer.data)
+
+    def create(self, request):
+        data = json.loads(request.body)
+
+        child_id = data.get('child_id', None)
+        start_time_string = data.get('start_time', None)
+        start_time = datetime.strptime(start_time_string, "%Y-%m-%dT%H:%M:%S.%fZ")
+        end_time_string = data.get('end_time', None)
+        end_time = datetime.strptime(end_time_string, "%Y-%m-%dT%H:%M:%S.%fZ")
+        right_side = data.get('right_side', None)
+
+        child = Child.objects.get(id=child_id)
+
+        newFeed = Feed.objects.create(child=child, start_time=start_time, end_time=end_time, right_side=right_side)
+        
+        serialized = FeedSerializer(newFeed)
+
+        return Response(serialized.data)
 
 class StartFeedView(views.APIView):
     def post(self, request, format=None):

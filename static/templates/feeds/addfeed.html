@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col m4 offset-m4">
+    <h1>Add Feed</h1>
+
+    <form role="form" ng-submit="vm.addFeed()">
+        <div class="row" ng-show="vm.children && vm.children.length > 1">
+            <div class="col s12" input-field>
+                <select id="feed_child" ng-options="child as child.name for child in vm.children" ng-model="vm.selectedchild" material-select watch>
+                </select>
+                <label for="feed__child">Child</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s6" input-field>
+                <input input-date type="text" class="validate" id="feed__start_date" ng-model="vm.start_date" />
+                <label for="feed__start_date">Start Date</label>
+            </div>
+            <div class="col s6" input-field>
+                <input input-clock data-twelvehour="false" type="text" class="validate" id="feed__start_time" ng-model="vm.start_time" >
+                <label for="feed__start_time">Start Time</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s6" input-field>
+                <input input-date type="text" class="validate" id="feed__end_date" ng-model="vm.end_date" />
+                <label for="feed__end_date">End Date</label>
+            </div>
+            <div class="col s6" input-field>
+                <input input-clock data-twelvehour="false" type="text" class="validate" id="feed__end_time" ng-model="vm.end_time" >
+                <label for="feed__end_time">End Time</label>
+            </div>
+        </div>
+        
+        <div class="row">
+          <div class="switch col s9">
+            <label>
+              Left
+              <input type="checkbox" ng-model="vm.right_side">
+              <span class="lever"></span>
+              Right
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <a href="/feeds" class="btn waves-effect waves-light red">Back</a>
+            <button type="submit" class="btn waves-effect waves-light right">
+                Add
+                <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+    </form>
+  </div>
+</div>

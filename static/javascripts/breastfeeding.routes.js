@@ -44,6 +44,10 @@
       controller: 'FeedsController',
       controllerAs: 'vm',
       templateUrl: '/static/templates/feeds/feeds.html'
+    }).when('/addfeed', {
+      controller: 'AddFeedController',
+      controllerAs: 'vm',
+      templateUrl: '/static/templates/feeds/addfeed.html'
     }).when('/', {
       controller: 'DashboardController',
       controllerAs: 'vm',
