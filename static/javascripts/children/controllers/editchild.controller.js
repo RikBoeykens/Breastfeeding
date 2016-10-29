@@ -58,7 +58,7 @@
        * Send back to settings view
        */
       function updateSuccessFn(){
-        $location.url('/settings/' + vm.child.id + '/child');
+        $location.url('/settings/');
       }
 
       /**

@@ -21,8 +21,7 @@
                   <p>{{feed.start_time | elapsed : 'short'}}, fed for {{feed.start_time | timediff : feed.end_time }} on {{feed.right_side ? 'right' : 'left'}}.</p>
                 </div>
                 <div class="col s4">
-                  <a class="right click-link grey-link" ng-click="vm.remove(feed)"><i class="material-icons">delete</i></a>
-                  <a class="right click-link grey-link" ng-click="vm.openModalTest()">Open modal</a>
+                  <a class="right click-link grey-text" ng-click="vm.remove(feed)"><i class="material-icons">delete</i></a>
                 </div>
               </li>
             </ul>
